@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frango Assado 1000 Grau</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff8f0;
+      padding: 20px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #d83f00;
+      text-align: center;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .whatsapp-button {
+      background-color: #25d366;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .whatsapp-button:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Frango Assado 1000 Grau</h1>
+  <h2>Agende seu frango assado para domingo!</h2>
+  <p style="text-align:center; font-size: 18px;">
+    <strong>Frango com Batata Grátis - R$ 52,00</strong><br/>
+    Entrega R$ 5,00 ou Retirada
+  </p>
+
+  <form id="pedidoForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" required>
+
+    <label for="endereco">Endereço (caso entrega):</label>
+    <input type="text" id="endereco">
+
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro">
+
+    <label for="referencia">Referência:</label>
+    <input type="text" id="referencia">
+
+    <label for="quantidade">Quantidade de Frangos:</label>
+    <input type="number" id="quantidade" min="1" value="1" required>
+
+    <label for="pagamento">Forma de Pagamento:</label>
+    <select id="pagamento">
+      <option value="Pix">Pix</option>
+      <option value="Dinheiro">Dinheiro</option>
+      <option value="Cartão">Cartão</option>
+    </select>
+
+    <label for="entrega">Entrega ou Retirada:</label>
+    <select id="entrega">
+      <option value="Retirada">Retirada</option>
+      <option value="Entrega (R$5,00)">Entrega (R$5,00)</option>
+    </select>
+
+    <a href="#" onclick="enviarPedido()" class="whatsapp-button">Pedir pelo WhatsApp</a>
+  </form>
+
+  <script>
+    function enviarPedido() {
+      const nome = document.getElementById('nome').value;
+      const endereco = document.getElementById('endereco').value;
+      const bairro = document.getElementById('bairro').value;
+      const referencia = document.getElementById('referencia').value;
+      const quantidade = document.getElementById('quantidade').value;
+      const pagamento = document.getElementById('pagamento').value;
+      const entrega = document.getElementById('entrega').value;
+
+      const msg = `Olá! Quero agendar meu frango assado 1000 Grau:
+      
+📝 Nome: ${nome}
+🍗 Quantidade: ${quantidade}
+💳 Pagamento: ${pagamento}
+🚚 Entrega/Retirada: ${entrega}
+
+📍 Endereço: ${endereco}
+🏘️ Bairro: ${bairro}
+📌 Referência: ${referencia}`;
+
+      const phone = "5531985013134"; // Seu número com DDI e DDD
+      const url = https://wa.me/${phone}?text=${encodeURIComponent(msg)};
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
